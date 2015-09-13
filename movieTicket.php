@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <style>
+        .epic {
+            font-weight: bold;
+            color: blue;
+            font-size: 28px;
+        }
+        .error {
+            font-weight: bold;
+            color: red;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+<?php
+// Shane Teall
+// CIS 222
+// 9-11-15
+// Movie ticket form validation
+
+// validate first name
+if (!empty($_POST['firstName'])){
+    $firstName = $_POST['firstName'];
+}else{
+    $firstName = NULL;
+    echo '<p class="error">You did not enter first name!</p>';
+}
+// validate last name
+if (!empty($_POST['lastName'])){
+    $lastName = $_POST['lastName'];
+}else{
+    $lastName = NULL;
+    echo '<p class="error">You did not enter last name!</p>';
+}
+// validate the age, check isNumeric, check age is appropriate value range
+if (!empty($_POST['age'])){
+    if (is_numeric($_POST['age'])){
+        $age = $_POST['age'];
+        if ($age < 18 || $age > 99){
+            $age = NULL;
+            echo '<p class="error">Your age is invalid!</p>';
+        }
+    }
+}else{
+    $age = NULL;
+    echo '<p class="error">You did not enter your age between 18 - 99!</p>';
+}
+// validating radio movie buttons, and using a switch to find title of movie
+if (isset($_POST['movie'])){
+    $movie = $_POST['movie'];
+}else{
+    $movie = NULL;
+    echo '<p class="error">You did not select an epic movie!</p>';
+}
+// switch to find title of movie after validation success
+switch ($movie){
+    case "blackhat":
+        $movTitle = "Blackhat";
+        break;
+    case "edgeOfTomarrow":
+        $movTitle = "Edge of Tomorrow";
+        break;
+    case "hackers":
+        $movTitle = "Hackers";
+        break;
+    case "madMax":
+        $movTitle = "MadMax";
+        break;
+    case "exMachina":
+        $movTitle = "exMachina";
+        break;
+}
+
+// put number of tickets in variable, defaults to 1
+$ticketNum = $_POST['numTicket'];
+// price is $5.25 per ticket
+$price = $ticketNum * 5.25;
+// echo the completed form back to the user
+if ($firstName && $lastName && $age && $movie){
+    echo "<p class=\"epic\">$firstName $lastName, Thank you for ordering $ticketNum tickets
+to see $movTitle. Your total is $$price. We'll see you soon!!!</p>";
+}else {
+    echo '<p class="error">You did not fill out form correctly!</p>';
+}
+
+?>
+</body>
+</html>
+

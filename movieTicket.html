@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Tickets</title>
+    <style type="text/css" title="text/css" media="all">
+        p {
+            font-weight: bold;
+            text-align: center;
+            font-size: 32px;
+        }
+        div {
+            padding: 10px;
+            margin: 10px;
+        }
+        div,label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<!--
+Shane Teall
+CIS 222
+9-11-15
+Movie ticket form validation
+-->
+<form action="movieTicket.php" method="post">;
+    <fieldset><legend>Enter in information for movie you would like to see.</legend>
+        <div><label> First name:
+        <input type="text" name="firstName" size="20" maxlength="20">
+    </label>
+        </div>
+        <div><label> Last name:
+            <input type="text" name="lastName" size="20" maxlength="20">
+        </label>
+        </div>
+        <div><label> Age:
+            <input type="text" name="age" size="20" maxlength="2">
+        </label>
+        </div>
+        <div><label> Number of tickets:
+            <select name="numTicket">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </label>
+        </div>
+        <p>Select from one of five awesome blockbuster movies!</p>
+        <div>
+            <lable>Blackhat:
+                <input type="radio" name="movie" value="blackhat"/>
+            <img src="blackhat.jpg">
+        </lable>
+            <lable>Edge of Tomorrow:
+                <input type="radio" name="movie" value="edgeOfTomarrow"/>
+                <img src="edgeOfTomarrow.jpg">
+            </lable>
+            <lable>Hackers:
+                <input type="radio" name="movie" value="hackers"/>
+                <img src="hackers.jpg">
+            </lable>
+            <lable>Mad Max:
+                <input type="radio" name="movie" value="madMax"/>
+                <img src="madMax.jpg">
+            </lable>
+            <lable>exMachina:
+                <input type="radio" name="movie" value="exMachina"/>
+                <img src="exMachina.jpg">
+            </lable>
+        </div>
+    </fieldset>
+    <p align="center">
+        <input type="submit" name="submit" value="Submit My Selection" />
+    </p>
+    </form>
+</body>
+</html>
